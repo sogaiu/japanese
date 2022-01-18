@@ -172,7 +172,7 @@
 (defn cjk-unified-ideograph?
   [bytes start]
   (when-let [[code-point byte-pos]
-               (codepoint-from-bytes bytes start)]
+             (codepoint-from-bytes bytes start)]
     (when (and (= (- byte-pos start) 3)
                (<= 0x4E00 code-point 0x9FAF))
       [code-point byte-pos])))
