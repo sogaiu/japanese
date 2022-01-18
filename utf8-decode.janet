@@ -13,7 +13,7 @@
       (+ (blshift (band 2r00000011 byte-0) 6)
          (band 2r00111111 byte-1)))
     (+ (blshift left-byte 8) right-byte)))
-  
+
 (comment
 
   (decode-2 @"\xC2\xA3" 0)
@@ -41,7 +41,7 @@
       (+ (blshift (band 2r00000011 byte-1) 6)
          (band 2r00111111 byte-2)))
     (+ (blshift left-byte 8) right-byte)))
-  
+
 (comment
 
   (decode-3 @"\xE0\xA4\xB9" 0)
@@ -90,7 +90,7 @@
     (+ (blshift left-byte 16)
        (blshift middle-byte 8)
        right-byte)))
-  
+
 (comment
 
   (decode-4 @"\xF0\x90\x8D\x88" 0)
@@ -150,7 +150,7 @@
   (codepoint-from-bytes @"\xE4\xB8\x7F" 0)
   # =>
   nil
-  
+
   (codepoint-from-bytes @"\xE0\xA4\xB9" 0)
   # =>
   [0x0939 3]
@@ -176,7 +176,7 @@
     (when (and (= (- byte-pos start) 3)
                (<= 0x4E00 code-point 0x9FAF))
       [code-point byte-pos])))
-  
+
 (comment
 
   (cjk-unified-ideograph? @"仕" 0)
@@ -226,7 +226,7 @@
   # =>
   [0x3063 3]
 
-  # っ  
+  # っ
   (hiragana? @"\xE3\x81\xA3" 0)
   # =>
   [0x3063 3]
@@ -255,7 +255,7 @@
   (katakana? @"ン" 0)
   # =>
   [0x30F3 3]
-  
+
   # ン
   (katakana? @"\xE3\x83\xB3" 0)
   # =>
