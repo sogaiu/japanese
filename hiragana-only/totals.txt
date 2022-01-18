@@ -1,17 +1,9 @@
-    0 10.txt
-    0 11.txt
-    0 12.txt
-    0 13.txt
-    0 14.txt
-    0 16.txt
    85 1.txt
  1166 2.txt
-    0 31.txt
  1768 3.txt
  1348 4.txt
   337 5.txt
   119 6.txt
    10 7.txt
     5 8.txt
-    0 9.txt
  4838 total
