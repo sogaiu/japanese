@@ -354,11 +354,6 @@
       (def bytes-len (length word))
       (when (zero? (% bytes-len 3))
         (def word-len (/ bytes-len 3))
-        (var cf (get of-table word-len))
-        (unless cf
-          (set cf
-               (file/open (string dirpath "/" word-len ".txt") :w))
-          (put of-table word-len cf))
         (var only-with-constraint true)
         (var byte-pos 0)
         (while (and (< byte-pos bytes-len)
@@ -367,6 +362,11 @@
             (set byte-pos next-pos)
             (set only-with-constraint false)))
         (when only-with-constraint
+          (var cf (get of-table word-len))
+          (unless cf
+            (set cf
+                 (file/open (string dirpath "/" word-len ".txt") :w))
+            (put of-table word-len cf))
           (file/write cf word)
           (file/write cf "\n")))
       (buffer/clear buf)))
